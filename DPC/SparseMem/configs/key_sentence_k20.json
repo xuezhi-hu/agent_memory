@@ -1,0 +1,7 @@
+{
+  "aggregate_mode": false,
+  "key_sentence_index": true,
+  "key_sentences_per_record": 2,
+  "final_k": 20,
+  "evidence_tokens": 4096
+}

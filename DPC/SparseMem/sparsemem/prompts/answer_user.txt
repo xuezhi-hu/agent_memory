@@ -1,0 +1,5 @@
+Question date: ${question_date}
+Question: ${question}
+Conversation evidence (timestamps, speakers, source IDs):
+${evidence}
+Answer:

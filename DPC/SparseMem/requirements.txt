@@ -1,0 +1,7 @@
+numpy
+transformers
+sentence-transformers
+torch
+openai
+backoff
+tqdm

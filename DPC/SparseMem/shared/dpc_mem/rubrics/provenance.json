@@ -1,0 +1,15 @@
+{
+  "source": "https://aclanthology.org/2026.findings-acl.1496/",
+  "section": "Appendix A.4",
+  "extraction": "PDF text with page headers/footer numbers removed; wording retained",
+  "judge_in_paper": "GPT-4.1-mini",
+  "source_pdf_text_sha256": "e2e3a55d61f43f9b863e1451a95b1008f3fc35336a5f113c261dd5ddcfb16b61",
+  "rubrics": {
+    "temporal.txt": "2aab474e3f213f22201e607ef59944bc92dda1ce888a1b8a00ef6ba7970f8b6b",
+    "update.txt": "4b554febb310777596cdfd9ae6d11d9cf720a7c79f250c8203b2670674156d1e",
+    "preference.txt": "a82f2aa198deeee8ebd0c143714dd76c9a24d7ea64389cb7e9487e3cfa233201",
+    "standard.txt": "46abef6da306a2d5122a3a70ad23231e686b15f25534153b19633403229621a7",
+    "abstention.txt": "8a7ff629cb8c2d6776e2ff65123df235b29e7bc5487a057c864fcc98292416e6",
+    "locomo.txt": "4140aa9d54b52878a3fdfa487bafebdc0675f831dc230e08f74ff42d6ca88e5e"
+  }
+}

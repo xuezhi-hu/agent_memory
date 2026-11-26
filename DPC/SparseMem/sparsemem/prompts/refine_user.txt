@@ -1,0 +1,14 @@
+Target block: ${block_id}
+Detected unresolved dependencies: ${dependency_flags}
+TARGET (source IDs, roles, dates, text):
+${target_dialogue}
+SUPPORTING CONTEXT (source IDs, roles, dates, text):
+${linked_dialogue}
+Return JSON with exactly the keys facts and unresolved. Use this shape:
+{"facts":[{"text":"...","source_ids":["..."],"entities":["..."],
+"event_start":null,"event_end":null,"time_expression":null,
+"precision":"unknown","assertion":"reported"}],"unresolved":[]}
+
+Rules: facts must be short, source_ids must include at least one TARGET ID,
+and unresolved must be an array of short strings. If no safe fact can be
+written, return {"facts":[],"unresolved":["..."]}.

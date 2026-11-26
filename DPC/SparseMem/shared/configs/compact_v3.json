@@ -1,0 +1,107 @@
+{
+  "tokenizer_path": "$DPC_TOKENIZER_PATH",
+  "timeout_seconds": 600,
+  "reader": {
+    "base_url_env": "DPC_LLM_BASE_URL",
+    "key_env": "DPC_LLM_API_KEY",
+    "model": "qwen3-30b-a3b-instruct-2507",
+    "response_models": [
+      "qwen3-30b-a3b-instruct-2507"
+    ],
+    "temperature": 0,
+    "context_tokens": 32768,
+    "request_extra": {
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      }
+    }
+  },
+  "judge": {
+    "base_url_env": "DPC_JUDGE_BASE_URL",
+    "key_env": "DPC_JUDGE_API_KEY",
+    "model": "qwen2.5-32b-instruct",
+    "response_models": [
+      "qwen2.5-32b-instruct"
+    ],
+    "temperature": 0,
+    "request_extra": {
+      "response_format": {
+        "type": "json_object"
+      }
+    }
+  },
+  "embedding": {
+    "backend": "sentence_transformers",
+    "base_url_env": "DPC_EMBED_BASE_URL",
+    "key_env": null,
+    "model": "all-MiniLM-L6-v2",
+    "dimensions": 384,
+    "batch_size": 16,
+    "query_prefix": "",
+    "document_prefix": "",
+    "model_path": "$DPC_TOPIC_EMBEDDING_PATH"
+  },
+  "build": {
+    "window_turns": 40,
+    "window_tokens": 4096,
+    "context_turns": 2,
+    "parallel_workers": 4,
+    "segmentation": {
+      "mode": "lightmem_topic",
+      "model_path": "$DPC_TOPIC_MODEL_PATH",
+      "embedding_model_path": "$DPC_TOPIC_EMBEDDING_PATH",
+      "buffer_tokens": 512,
+      "attention_layers": [
+        8,
+        9,
+        10,
+        11
+      ]
+    },
+    "extract_max_tokens": 8192,
+    "consolidate_max_tokens": 8192,
+    "review_max_tokens": 8192,
+    "method": "tfm_one_pass",
+    "tfm_batch_windows": 4,
+    "tfm_truncation_split_depth": 2,
+    "tfm_max_tokens": 4096,
+    "compact": {
+      "version": 3,
+      "retention_rate": 0.5,
+      "short_turn_tokens": 80,
+      "model_path": "$DPC_TOPIC_MODEL_PATH",
+      "device": "cpu",
+      "max_batch_input_tokens": 6000,
+      "protect_distinctions": true,
+      "preserve_unreferenced_targets": true
+    }
+  },
+  "retrieval": {
+    "raw_chunk_turns": 2,
+    "dense_k": 25,
+    "lexical_k": 25,
+    "rrf_k": 60,
+    "bm25_k1": 1.5,
+    "bm25_b": 0.75,
+    "final_k": 25,
+    "evidence_tokens": 8192,
+    "detail_view": "detail_only",
+    "raw_fallback": true
+  },
+  "answer_max_tokens": 8192,
+  "judge_max_tokens": 256,
+  "pricing": {},
+  "recovery": {
+    "max_retries_per_request": 2,
+    "max_retries_per_run": 12,
+    "backoff_seconds": [
+      2,
+      5
+    ]
+  },
+  "tfm_design": {
+    "status": "compact_implementation_pending_qa",
+    "parent": "TFM-EventContext",
+    "claim": "lower construction and reader tokens; QA preservation to be tested"
+  }
+}
